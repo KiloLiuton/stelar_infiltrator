@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dstwlsdwntq7r"]
+
+[ext_resource type="Script" uid="uid://dopictmy7k487" path="res://scripts/turret.gd" id="1_485p4"]
+[ext_resource type="Texture2D" uid="uid://bt2ek8origtj1" path="res://graphics/turret_base.png" id="1_x3mc5"]
+[ext_resource type="Texture2D" uid="uid://dfy6hd058jnmw" path="res://graphics/turret.png" id="2_el7wl"]
+[ext_resource type="Resource" uid="uid://dihfpi1v0un3c" path="res://stat_sheets/turret.tres" id="2_pp6j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjdg3"]
+size = Vector2(39, 59)
+
+[node name="Turret" type="Node2D" groups=["Enemy"]]
+script = ExtResource("1_485p4")
+stats = ExtResource("2_pp6j5")
+
+[node name="TurretBase" type="Sprite2D" parent="."]
+texture = ExtResource("1_x3mc5")
+
+[node name="TurretArea" type="Area2D" parent="."]
+
+[node name="TurretImage" type="Sprite2D" parent="TurretArea"]
+texture = ExtResource("2_el7wl")
+
+[node name="TurretCollision" type="CollisionShape2D" parent="TurretArea"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_tjdg3")
+
+[connection signal="body_entered" from="TurretArea" to="." method="_on_turret_body_entered"]

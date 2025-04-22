@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh78ciq6j5luo"]
+
+[ext_resource type="Texture2D" uid="uid://bdf38bridjx1w" path="res://graphics/xwing.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://0mvdhuxeoygv" path="res://graphics/xwing_shadow.png" id="1_g2els"]
+[ext_resource type="Script" uid="uid://bat60clqjovvq" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Resource" uid="uid://dswmgq2ciil2p" path="res://stat_sheets/xwing.tres" id="2_dqkch"]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_qhqgy")
+stats = ExtResource("2_dqkch")
+
+[node name="PlayerShadow" type="Sprite2D" parent="."]
+position = Vector2(67, 25)
+texture = ExtResource("1_g2els")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(11, 0, 14, 25, 54, 35, 54, 53, 12, 51, -7, 50, -52, 53, -53, 35, -12, 26, -11, 0, -5, -36, 3, -36)

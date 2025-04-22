@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatSheet" load_steps=2 format=3 uid="uid://dihfpi1v0un3c"]
+
+[ext_resource type="Script" uid="uid://vwqaruwkq8w8" path="res://scripts/stat_sheets.gd" id="1_0xfnb"]
+
+[resource]
+script = ExtResource("1_0xfnb")
+life = 2.0
+armor = 0.0
+damage = 2.0
+max_accel = 0.0
+max_speed = 0.0
+turn_rate = 1.571
+metadata/_custom_type_script = "uid://vwqaruwkq8w8"
