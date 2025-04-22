@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="StarWarsTrenchRun"
+config/name="stelar_infiltrator"
 config/description="Blow up the Death Star!"
 run/main_scene="uid://dkw4njrgskgn4"
 config/features=PackedStringArray("4.4", "Forward Plus")
