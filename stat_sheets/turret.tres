@@ -6,8 +6,8 @@
 script = ExtResource("1_0xfnb")
 life = 2.0
 armor = 0.0
-damage = 2.0
-max_accel = 0.0
-max_speed = 0.0
-turn_rate = 1.571
+damage = 1.0
+max_accel = 100.0
+max_speed = 100.0
+turn_rate = 30.0
 metadata/_custom_type_script = "uid://vwqaruwkq8w8"

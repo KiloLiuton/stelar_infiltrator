@@ -8,14 +8,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjdg3"]
 size = Vector2(39, 59)
 
-[node name="Turret" type="Node2D" groups=["Enemy"]]
+[node name="Turret" type="Node2D"]
+z_index = 1
 script = ExtResource("1_485p4")
 stats = ExtResource("2_pp6j5")
 
 [node name="TurretBase" type="Sprite2D" parent="."]
 texture = ExtResource("1_x3mc5")
 
-[node name="TurretArea" type="Area2D" parent="."]
+[node name="TurretArea" type="Area2D" parent="." groups=["Enemy"]]
+z_index = 1
 
 [node name="TurretImage" type="Sprite2D" parent="TurretArea"]
 texture = ExtResource("2_el7wl")
@@ -24,4 +26,4 @@ texture = ExtResource("2_el7wl")
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_tjdg3")
 
-[connection signal="body_entered" from="TurretArea" to="." method="_on_turret_body_entered"]
+[connection signal="area_entered" from="TurretArea" to="." method="_on_turret_area_area_entered"]

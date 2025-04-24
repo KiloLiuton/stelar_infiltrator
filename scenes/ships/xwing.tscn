@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://5d82b6viv13l"]
+
+[ext_resource type="Script" uid="uid://bat60clqjovvq" path="res://scripts/xwing.gd" id="1_70vss"]
+[ext_resource type="Resource" uid="uid://dswmgq2ciil2p" path="res://stat_sheets/xwing.tres" id="2_cj1y8"]
+[ext_resource type="Texture2D" uid="uid://0mvdhuxeoygv" path="res://graphics/xwing_shadow.png" id="3_5iynp"]
+[ext_resource type="Texture2D" uid="uid://bdf38bridjx1w" path="res://graphics/xwing.png" id="4_il5fj"]
+
+[node name="XWing" type="CharacterBody2D" groups=["Player"]]
+z_index = 2
+script = ExtResource("1_70vss")
+stats = ExtResource("2_cj1y8")
+
+[node name="PlayerShadow" type="Sprite2D" parent="."]
+position = Vector2(67, 25)
+texture = ExtResource("3_5iynp")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("4_il5fj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(11, 0, 14, 25, 54, 35, 54, 53, 12, 51, -7, 50, -52, 53, -53, 35, -12, 26, -11, 0, -5, -36, 3, -36)
+
+[node name="WeaponPoints" type="Node2D" parent="."]
+
+[node name="w1" type="Node2D" parent="WeaponPoints"]
+position = Vector2(-47, -2)
+
+[node name="w2" type="Node2D" parent="WeaponPoints"]
+position = Vector2(48, -3)

@@ -1,31 +1,31 @@
-extends CharacterBody2D
+@icon("res://graphics/xwing.png")
+extends Node2D
 
 @export var stats : StatSheet
-var level: Node
-
-var screen_size: Vector2
-var top_left: Vector2
-var bot_right: Vector2
 
 # Visual effects on ship when turning
-const MAX_SKEW = 0.045
-const SKEW_SPEED = 0.4
+const MAX_SKEW := 0.045
+const SKEW_SPEED := 0.4
+var velocity = Vector2.ZERO
 
 
 func _ready() -> void:
-	level = get_node("../")
-	screen_size = get_viewport_rect().size
-	top_left = Vector2(level.BORDER_LEFT, level.BORDER_TOP)
-	bot_right = Vector2(screen_size.x - level.BORDER_RIGHT, screen_size.y - level.BORDER_BOTTOM)
-	print("Hi from player! ", bot_right)
-	velocity = Vector2.ZERO
-	position = Vector2(screen_size.x/2, screen_size.y - level.BORDER_BOTTOM)
-
+	pass
 
 
 func _process(delta: float) -> void:
+	## Process movement
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity += stats.max_accel * delta * direction
+	if direction != Vector2.ZERO:
+		velocity += stats.max_accel * delta * direction
+		var vel = velocity.length()
+		if vel > stats.max_speed:
+			velocity = velocity.normalized() * stats.max_speed
+	else:
+		velocity = decay_vel(velocity, stats.max_accel / 3, delta)
+	position = position + velocity * delta
+
+	## Visual transformations
 	if direction.x > 0:
 		$PlayerImage.skew = skew_sprite($PlayerImage.skew, delta, 1)
 		$PlayerImage.rotation = rotate_sprite($PlayerImage.rotation, delta, 1)
@@ -37,28 +37,10 @@ func _process(delta: float) -> void:
 		$PlayerShadow.skew = skew_sprite($PlayerShadow.skew, delta, -1)
 		$PlayerShadow.rotation = rotate_sprite($PlayerShadow.rotation, delta, -1)
 	else:
-		if direction.y == 0:
-			velocity = decay_vel(velocity, stats.max_accel / 3, delta)
 		$PlayerImage.skew = skew_sprite_decay($PlayerImage.skew, delta)
 		$PlayerImage.rotation = rotate_sprite_decay($PlayerImage.rotation, delta)
 		$PlayerShadow.skew = skew_sprite_decay($PlayerShadow.skew, delta)
 		$PlayerShadow.rotation = rotate_sprite_decay($PlayerShadow.rotation, delta)
-	var vel = velocity.length()
-	if vel > stats.max_speed:
-		velocity = velocity.normalized() * stats.max_speed
-	position = position + velocity * delta
-	if position.x < top_left.x:
-		velocity.x = 0
-		position.x = top_left.x
-	elif position.x > bot_right.x:
-		velocity.x = 0
-		position.x = bot_right.x
-	if position.y < top_left.y:
-		velocity.y = 0
-		position.y = top_left.y
-	if position.y > bot_right.y:
-		velocity.y = 0
-		position.y = bot_right.y
 
 
 func skew_sprite(s, delta, direction) -> float:
