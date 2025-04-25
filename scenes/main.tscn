@@ -9,28 +9,28 @@ size = Vector2(987.5, 1473)
 script = ExtResource("1_0wfyh")
 BACKGROUND_SPEED = 250
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Boundaries" type="Node2D" parent="."]
 
-[node name="Left" type="StaticBody2D" parent="Walls"]
+[node name="Left" type="StaticBody2D" parent="Boundaries"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left"]
 position = Vector2(-496, 656)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="Right" type="StaticBody2D" parent="Walls"]
+[node name="Right" type="StaticBody2D" parent="Boundaries"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right"]
 position = Vector2(349, -740)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="Top" type="StaticBody2D" parent="Walls"]
+[node name="Top" type="StaticBody2D" parent="Boundaries"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Top"]
 position = Vector2(405, 2020)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="Bottom" type="StaticBody2D" parent="Walls"]
+[node name="Bottom" type="StaticBody2D" parent="Boundaries"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bottom"]
 position = Vector2(1272, 565.5)
 shape = SubResource("RectangleShape2D_o5qli")

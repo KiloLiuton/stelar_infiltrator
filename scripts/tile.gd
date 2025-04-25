@@ -9,7 +9,6 @@ func _ready() -> void:
 	spawn_points.shuffle()
 
 
-
 func _process(_delta: float) -> void:
 	pass
 
