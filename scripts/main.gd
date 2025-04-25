@@ -31,7 +31,7 @@ func _ready() -> void:
 	# Fix the position of the first tile so that it starts covering the screen
 	tiles[0].position += Vector2(0.0, screen_size.y)
 
-var s = 0
+
 func _process(delta: float) -> void:
 	## Move background
 	for tile in tiles:
@@ -49,19 +49,6 @@ func _process(delta: float) -> void:
 		laser_attack()
 		player.get_node("AttackCooldown").start()
 		player.laser_ready = false
-	## Constrain player
-	if player.position.x < top_left.x:
-		player.velocity.x = 0
-		player.position.x = top_left.x
-	elif player.position.x > bot_right.x:
-		player.velocity.x = 0
-		player.position.x = bot_right.x
-	if player.position.y < top_left.y:
-		player.velocity.y = 0
-		player.position.y = top_left.y
-	if player.position.y > bot_right.y:
-		player.velocity.y = 0
-		player.position.y = bot_right.y
 
 
 func spawn_player(ship_name: StringName) -> Node:

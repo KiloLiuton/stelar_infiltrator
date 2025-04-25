@@ -6,7 +6,8 @@ extends Node2D
 @onready var target = get_node("../../XWing")
 @onready var main := get_parent()
 var turret_area: Node
-var cooldown = 0.0
+var cooldown := 0.0
+
 
 
 func _ready() -> void:
@@ -17,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if stats.life > 0:
 		cooldown += delta
-		if cooldown > 3:
+		if cooldown > stats.attack_time:
 			fire(target)
 			cooldown = 0
 		$TurretArea.look_at(target.position)

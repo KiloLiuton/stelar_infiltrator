@@ -1,16 +1,18 @@
 @icon("res://graphics/xwing.png")
-extends Node2D
+extends CharacterBody2D
 
 @export var stats : StatSheet
+
+const ACCELL_DECAY_FACTOR := 2.0
 
 # Visual effects on ship when turning
 const MAX_SKEW := 0.045
 const SKEW_SPEED := 0.4
-var velocity = Vector2.ZERO
 var laser_ready := true
 
 
 func _ready() -> void:
+	set_motion_mode(MOTION_MODE_FLOATING)
 	$AttackCooldown.wait_time = stats.attack_time
 
 
@@ -23,8 +25,8 @@ func _process(delta: float) -> void:
 		if vel > stats.max_speed:
 			velocity = velocity.normalized() * stats.max_speed
 	else:
-		velocity = decay_vel(velocity, stats.max_accel / 3, delta)
-	position = position + velocity * delta
+		velocity = decay_vel(velocity, stats.max_accel / ACCELL_DECAY_FACTOR, delta)
+	move_and_slide()
 
 	## Visual transformations
 	if direction.x > 0:
