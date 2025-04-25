@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bdf38bridjx1w" path="res://graphics/xwing.png" id="4_il5fj"]
 
 [node name="XWing" type="CharacterBody2D" groups=["Player"]]
-z_index = 2
+z_index = 10
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_70vss")
 stats = ExtResource("2_cj1y8")
 
@@ -27,3 +28,9 @@ position = Vector2(-47, -2)
 
 [node name="w2" type="Node2D" parent="WeaponPoints"]
 position = Vector2(48, -3)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

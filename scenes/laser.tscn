@@ -12,6 +12,7 @@ z_index = 2
 script = ExtResource("1_a7dhc")
 
 [node name="LaserImage" type="Sprite2D" parent="."]
+z_index = 5
 texture = ExtResource("1_xmihv")
 
 [node name="LaserArea" type="Area2D" parent="." groups=["Projectiles"]]

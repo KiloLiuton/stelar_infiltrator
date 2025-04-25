@@ -7,10 +7,11 @@ extends Node2D
 const MAX_SKEW := 0.045
 const SKEW_SPEED := 0.4
 var velocity = Vector2.ZERO
+var laser_ready := true
 
 
 func _ready() -> void:
-	pass
+	$AttackCooldown.wait_time = stats.attack_time
 
 
 func _process(delta: float) -> void:
@@ -79,3 +80,7 @@ func rotate_sprite_decay(r, delta) -> float:
 func decay_vel(vel: Vector2, accel, delta) -> Vector2:
 	var new_len = max(vel.length() - accel * delta, 0)
 	return vel.normalized() * new_len
+
+
+func _on_attack_cooldown_timeout() -> void:
+	laser_ready = true

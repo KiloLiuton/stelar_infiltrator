@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpdmce2eji8m2"]
+
+[ext_resource type="Texture2D" uid="uid://qniacrbn8lfy" path="res://graphics/tiles/background_trench.png" id="1_ywnoi"]
+[ext_resource type="Script" uid="uid://lgo0v0bcip18" path="res://scripts/tile.gd" id="2_jy7pm"]
+
+[node name="Tile" type="Sprite2D"]
+z_index = -2
+texture = ExtResource("1_ywnoi")
+script = ExtResource("2_jy7pm")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="s1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(132, -459)
+
+[node name="s2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-129, 224)

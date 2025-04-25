@@ -15,10 +15,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	cooldown += delta
-	if cooldown > 3:
-		fire(target)
-	if $TurretArea != null:
+	if stats.life > 0:
+		cooldown += delta
+		if cooldown > 3:
+			fire(target)
+			cooldown = 0
 		$TurretArea.look_at(target.position)
 
 
@@ -33,4 +34,4 @@ func _on_turret_area_area_entered(area: Area2D) -> void:
 
 
 func fire(tgt) -> void:
-	pass
+	print("Turret firing at ", tgt, "!")

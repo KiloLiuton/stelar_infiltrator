@@ -17,7 +17,6 @@ stats = ExtResource("2_pp6j5")
 texture = ExtResource("1_x3mc5")
 
 [node name="TurretArea" type="Area2D" parent="." groups=["Enemy"]]
-z_index = 1
 
 [node name="TurretImage" type="Sprite2D" parent="TurretArea"]
 texture = ExtResource("2_el7wl")

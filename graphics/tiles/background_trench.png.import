@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qniacrbn8lfy"
-path="res://.godot/imported/background_trench.png-11dfec1c88c51b31d2cacab4874047d6.ctex"
+path="res://.godot/imported/background_trench.png-ff7505e6c6de30a4c4ea7086d4905023.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/background_trench.png"
-dest_files=["res://.godot/imported/background_trench.png-11dfec1c88c51b31d2cacab4874047d6.ctex"]
+source_file="res://graphics/tiles/background_trench.png"
+dest_files=["res://.godot/imported/background_trench.png-ff7505e6c6de30a4c4ea7086d4905023.ctex"]
 
 [params]
 

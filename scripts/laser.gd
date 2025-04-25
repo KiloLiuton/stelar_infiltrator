@@ -10,3 +10,5 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
+	if position.length() > 2000:
+		queue_free()
